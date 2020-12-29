@@ -1,0 +1,34 @@
+wakeup_hour:
+  name: Hour
+  icon: mdi:clock-in
+  min: 0
+  max: 23
+  step: 1
+
+wakeup_minutes:
+  name: Minutes
+  icon: mdi:clock-in
+  min: 0
+  max: 55
+  step: 5
+
+wakeup_duration:
+  name: Light fade-in duration
+  icon: mdi:clock-in
+  min: 5
+  max: 60
+  step: 5
+
+wakeup_final_brightness:
+  name: Final brightness
+  icon: mdi:clock-in
+  min: 100
+  max: 254
+  step: 5
+
+deconz_port:
+  name: deCONZ port
+  mode: box
+  min: 1
+  max: 65535
+  step: 1

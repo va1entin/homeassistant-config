@@ -1,0 +1,3 @@
+deconz_api_key:
+    name: deCONZ API Key
+    mode: password

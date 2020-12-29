@@ -1,0 +1,20 @@
+time_date:
+  name: Time/Date
+  entities:
+    - sensor.time
+    - sensor.date
+    - sensor.date_time_utc
+wakeuplight:
+  name: Wakeup light
+  entities:
+    - input_boolean.wakeup
+    - input_boolean.wakeup_weekends
+    - input_number.deconz_port
+    - input_number.wakeup_hour
+    - input_number.wakeup_minutes
+    - input_number.wakeup_duration
+    - input_number.wakeup_final_brightness
+    - input_text.deconz_api_key
+    - sensor.wakeup_alarm_time
+    - sensor.wakeup_start_time_lights
+    - sensor.wakeup_fadein_duration
