@@ -1,3 +1,8 @@
+light_rooms:
+  name: Light rooms
+  entities:
+    - light.bedroom_2
+    - light.living_room_2
 time_date:
   name: Time/Date
   entities:
