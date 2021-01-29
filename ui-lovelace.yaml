@@ -1,0 +1,54 @@
+title: Home
+views:
+  - path: default_view
+    title: Home
+    badges:
+      - entity: binary_sensor.updater
+      - entity: person.val
+      - entity: sensor.time
+      - entity: sun.sun
+    cards:
+      - type: entities
+        entities:
+          - light.bedroom
+          - light.living_room
+          - light.bathroom
+        title: Light rooms
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - light.bedroom_deckenfluter
+          - light.living_room_deckenfluter
+          - light.bathroom_left
+          - light.bathroom_right
+        title: Light bulbs
+      - type: weather-forecast
+        entity: weather.home
+        name: Forecast
+      - type: entities
+        entities:
+          - sensor.smart_button_bedroom_battery_level
+          - sensor.smart_button_living_room_battery_level
+          - sensor.smart_button_bathroom_battery_level
+        title: Button battery levels
+      - type: entities
+        entities:
+          - sensor.date_time
+          - sensor.date_time_utc
+        title: Time/Date
+        show_header_toggle: true
+      - type: entities
+        entities:
+          - input_boolean.wakeup
+          - input_boolean.wakeup_weekends
+          - input_number.wakeup_hour
+          - input_number.wakeup_minutes
+          - input_number.wakeup_duration
+          - input_number.wakeup_final_brightness
+          - sensor.wakeup_alarm_time
+          - sensor.wakeup_start_time_lights
+          - sensor.wakeup_fadein_duration
+          - input_text.deconz_api_key
+          - input_number.deconz_port
+        title: Wakeup light
+        show_header_toggle: false
