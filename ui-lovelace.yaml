@@ -27,6 +27,9 @@ views:
         name: Forecast
       - type: entities
         entities:
+          - input_boolean.enable_battery_alarm
+          - input_number.warn_battery_level
+          - input_number.crit_battery_level
           - sensor.smart_button_bedroom_battery_level
           - sensor.smart_button_living_room_battery_level
           - sensor.smart_button_bathroom_battery_level

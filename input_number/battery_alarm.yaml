@@ -1,0 +1,13 @@
+warn_battery_level:
+  name: Battery level warn
+  icon: mdi:battery-30
+  min: 1
+  max: 100
+  step: 1
+
+crit_battery_level:
+  name: Battery level crit
+  icon: mdi:battery-10
+  min: 1
+  max: 100
+  step: 1
