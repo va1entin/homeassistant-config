@@ -55,3 +55,8 @@ views:
           - input_number.deconz_port
         title: Wakeup light
         show_header_toggle: false
+      - type: entities
+        entities:
+          - input_boolean.enable_version_notification
+          - input_boolean.enable_battery_alarm
+        title: Notifications
