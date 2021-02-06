@@ -1,6 +1,8 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+python_script:
+
 # Text to speech
 tts:
   - platform: google_translate
