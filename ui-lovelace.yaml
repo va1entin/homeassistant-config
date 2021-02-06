@@ -18,6 +18,7 @@ views:
       - type: entities
         entities:
           - light.bedroom_deckenfluter
+          - light.bedroom_desk
           - light.living_room_deckenfluter
           - light.bathroom_left
           - light.bathroom_right
