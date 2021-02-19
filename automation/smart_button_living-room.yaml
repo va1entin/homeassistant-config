@@ -4,9 +4,8 @@ trigger:
 - device_id: 4c95d3b154125b8ff21d92c3fe0df0f8
   domain: deconz
   platform: device
-  type: remote_button_short_press
+  type: remote_button_short_release
   subtype: turn_on
 action:
   service: light.toggle
-  entity_id:
-    - light.living_room
+  entity_id: light.living_room
