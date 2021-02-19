@@ -6,6 +6,14 @@ trigger:
 condition:
   condition: and
   conditions:
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: person.val
+        state: 'home'
+      - condition: state
+        entity_id: input_boolean.wakeup_only_when_home
+        state: 'on'
     - condition: state
       entity_id: input_boolean.wakeup
       state: 'on'
