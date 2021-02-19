@@ -45,6 +45,7 @@ views:
         entities:
           - input_boolean.wakeup
           - input_boolean.wakeup_weekends
+          - input_boolean.wakeup_only_when_home
           - input_number.wakeup_hour
           - input_number.wakeup_minutes
           - input_number.wakeup_duration

@@ -5,3 +5,7 @@ wakeup:
 wakeup_weekends:
   name: 'Wakeup weekends'
   icon: mdi:power
+
+wakeup_only_when_home:
+  name: 'Wakeup only if home'
+  icon: mdi:power
