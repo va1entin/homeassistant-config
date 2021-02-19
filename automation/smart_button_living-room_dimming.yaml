@@ -1,0 +1,55 @@
+- alias: 'Smart button living room dim down'
+  initial_state: 'on'
+  trigger:
+  - device_id: 63d4d6c2bfe5f91ea76d24dd6f1e3e05
+    domain: deconz
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_on
+  condition:
+    condition: state
+    entity_id: input_boolean.dim_state_living_room_up
+    state: 'off'
+  action:
+    service: deconz.configure
+    data:
+      entity: light.living_room
+      field: "/action"
+      data: {"bri": 0, "transitiontime": 50}
+
+- alias: 'Smart button living room dim up'
+  initial_state: 'on'
+  trigger:
+  - device_id: 63d4d6c2bfe5f91ea76d24dd6f1e3e05
+    domain: deconz
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_on
+  condition:
+    condition: state
+    entity_id: input_boolean.dim_state_living_room_up
+    state: 'on'
+  action:
+    service: deconz.configure
+    data:
+      entity: light.living_room
+      field: "/action"
+      data: {"bri": 254, "transitiontime": 50}
+
+- alias: 'Smart button living room stop dim'
+  initial_state: 'on'
+  trigger:
+  - device_id: 63d4d6c2bfe5f91ea76d24dd6f1e3e05
+    domain: deconz
+    platform: device
+    type: remote_button_long_release
+    subtype: turn_on
+  action:
+    - service: deconz.configure
+      data:
+        entity: light.living_room
+        field: "/action"
+        data: {"bri_inc": 0}
+    - service: python_script.toggle_bool
+      data_template:
+        entity_id: input_boolean.dim_state_living_room_up

@@ -8,7 +8,7 @@ tts:
   - platform: google_translate
 
 # Includes
-automation: !include_dir_list automation/
+automation: !include_dir_merge_list automation/
 #device_tracker: !include_dir_list device_tracker/
 #group: !include_dir_merge_named group/
 input_number: !include_dir_merge_named input_number/
