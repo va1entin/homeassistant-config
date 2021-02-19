@@ -60,4 +60,6 @@ views:
         entities:
           - input_boolean.enable_version_notification
           - input_boolean.enable_battery_alarm
+          - input_number.warn_battery_level
+          - input_number.crit_battery_level
         title: Notifications
