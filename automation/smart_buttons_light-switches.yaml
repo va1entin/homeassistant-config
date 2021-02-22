@@ -32,5 +32,4 @@
     subtype: turn_on
   action:
     service: light.toggle
-    entity_id:
-      - light.bathroom
+    entity_id: light.bathroom
