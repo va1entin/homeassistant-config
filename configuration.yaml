@@ -18,8 +18,8 @@ input_text: !include_dir_merge_named input_text/
 #script: !include script.yaml
 sensor: !include sensor.yaml
 shell_command: !include shell_command.yaml
-#homeassistant:
-  #customize: !include customize.yaml
+homeassistant:
+  customize: !include customize.yaml
 
 logger:
   default: info
