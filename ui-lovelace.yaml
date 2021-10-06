@@ -9,24 +9,25 @@ views:
       - entity: sun.sun
     cards:
       - type: entities
+        title: Light rooms
         entities:
           - light.bedroom
           - light.living_room
           - light.bathroom
-        title: Light rooms
         show_header_toggle: true
       - type: entities
+        title: Light bulbs
         entities:
           - light.bedroom_deckenfluter
           - light.bedroom_desk
           - light.living_room_deckenfluter
           - light.bathroom_left
           - light.bathroom_right
-        title: Light bulbs
       - type: weather-forecast
-        entity: weather.home
         name: Forecast
+        entity: weather.home
       - type: entities
+        title: Button battery levels
         entities:
           - input_boolean.enable_battery_alarm
           - input_number.warn_battery_level
@@ -34,14 +35,14 @@ views:
           - sensor.smart_button_bedroom_battery_level
           - sensor.smart_button_living_room_battery_level
           - sensor.smart_button_bathroom_battery_level
-        title: Button battery levels
       - type: entities
+        title: Time/Date
         entities:
           - sensor.date_time
           - sensor.date_time_utc
-        title: Time/Date
         show_header_toggle: true
       - type: entities
+        title: Wakeup light
         entities:
           - input_boolean.wakeup
           - input_boolean.wakeup_weekends
@@ -55,12 +56,9 @@ views:
           - sensor.wakeup_fadein_duration
           - input_text.deconz_api_key
           - input_number.deconz_port
-        title: Wakeup light
         show_header_toggle: false
       - type: entities
+        title: Notifications
         entities:
           - input_boolean.enable_version_notification
           - input_boolean.enable_battery_alarm
-          - input_number.warn_battery_level
-          - input_number.crit_battery_level
-        title: Notifications
