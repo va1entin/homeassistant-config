@@ -1,4 +1,0 @@
-deconz_api_key:
-  name: deCONZ API Key
-  mode: password
-  icon: mdi:form-textbox-password
