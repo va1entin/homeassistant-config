@@ -2,6 +2,14 @@ dim_state_bedroom_up:
   name: 'Dim state bedroom'
   icon: mdi:power
 
+dim_state_bedroom_stop:
+  name: 'Dim state bedroom stop'
+  icon: mdi:power
+
 dim_state_living_room_up:
   name: 'Dim state living room'
+  icon: mdi:power
+
+dim_state_living_room_stop:
+  name: 'Dim state living room stop'
   icon: mdi:power
