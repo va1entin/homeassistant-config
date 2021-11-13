@@ -1,55 +1,82 @@
-- alias: 'Smart button bedroom'
+- alias: 'Smart button bedroom dim down'
   initial_state: 'on'
   trigger:
-  - device_id: 63d4d6c2bfe5f91ea76d24dd6f1e3e05
-    domain: deconz
-    platform: device
-    type: remote_button_long_press
-    subtype: turn_on
+    - platform: state
+      entity_id: input_boolean.dim_state_bedroom_stop
+      from: "on"
+      to: "off"
   condition:
     condition: state
     entity_id: input_boolean.dim_state_bedroom_up
     state: 'off'
   action:
-    service: deconz.configure
-    data:
-      entity: light.bedroom
-      field: "/action"
-      data: {"bri": 0, "transitiontime": 50}
+    repeat:
+      sequence:
+        - service: light.turn_on
+          target:
+            entity_id: light.bedroom_lights
+          data:
+            brightness_step_pct: -20
+            transition: 1
+        - delay:
+            seconds: 1
+      until:
+        - condition: state
+          entity_id: input_boolean.dim_state_bedroom_stop
+          state: "on"
 
-- alias: 'Smart button bedroom'
+- alias: 'Smart button bedroom dim up'
   initial_state: 'on'
   trigger:
-  - device_id: 63d4d6c2bfe5f91ea76d24dd6f1e3e05
-    domain: deconz
-    platform: device
-    type: remote_button_long_press
-    subtype: turn_on
+    - platform: state
+      entity_id: input_boolean.dim_state_bedroom_stop
+      from: "on"
+      to: "off"
   condition:
     condition: state
     entity_id: input_boolean.dim_state_bedroom_up
     state: 'on'
   action:
-    service: deconz.configure
-    data:
-      entity: light.bedroom
-      field: "/action"
-      data: {"bri": 254, "transitiontime": 50}
+    repeat:
+      sequence:
+        - service: light.turn_on
+          target:
+            entity_id: light.bedroom_lights
+          data:
+            brightness_step_pct: 20
+            transition: 1
+        - delay:
+            seconds: 1
+      until:
+        - condition: state
+          entity_id: input_boolean.dim_state_bedroom_stop
+          state: "on"
 
-- alias: 'Smart button bedroom'
+- alias: 'Smart button bedroom start dim' 
   initial_state: 'on'
   trigger:
   - device_id: 63d4d6c2bfe5f91ea76d24dd6f1e3e05
-    domain: deconz
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_on
+  action:
+    service: input_boolean.turn_off
+    data_template:
+      entity_id: input_boolean.dim_state_bedroom_stop
+
+- alias: 'Smart button bedroom stop dim'
+  initial_state: 'on'
+  trigger:
+  - device_id: 63d4d6c2bfe5f91ea76d24dd6f1e3e05
+    domain: zha
     platform: device
     type: remote_button_long_release
     subtype: turn_on
   action:
-    - service: deconz.configure
-      data:
-        entity: light.bedroom
-        field: "/action"
-        data: {"bri_inc": 0}
     - service: python_script.toggle_bool
       data_template:
         entity_id: input_boolean.dim_state_bedroom_up
+    - service: input_boolean.turn_on
+      data_template:
+        entity_id: input_boolean.dim_state_bedroom_stop

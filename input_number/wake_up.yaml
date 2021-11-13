@@ -26,9 +26,3 @@ wakeup_final_brightness:
   max: 254
   step: 5
 
-deconz_port:
-  name: deCONZ port
-  mode: box
-  min: 1
-  max: 65535
-  step: 1

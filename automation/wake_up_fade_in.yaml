@@ -6,14 +6,19 @@
   condition:
     condition: and
     conditions:
-      - condition: and
+      - condition: or
         conditions:
         - condition: state
-          entity_id: person.val
-          state: 'home'
-        - condition: state
           entity_id: input_boolean.wakeup_only_when_home
-          state: 'on'
+          state: 'off'
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: person.val
+            state: 'home'
+          - condition: state
+            entity_id: input_boolean.wakeup_only_when_home
+            state: 'on'
       - condition: state
         entity_id: input_boolean.wakeup
         state: 'on'
@@ -30,13 +35,9 @@
               - thu
               - fri
   action:
-    service: shell_command.wakeup_light_call
-  # Would be nicer but does not work because one can't use templating in "data" :/
-  #      - service: deconz.configure
-  #        data:
-  #          entity: light.bedroom
-  #          field: '/state'
-  #          data:
-  #            'on': true
-  #            'bri': {{ states('input_number.wakeup_final_brightness') }} <- make hass go into safe mode
-  #            'transitiontime': 50
+      service: light.turn_on
+      target:
+        entity_id: light.bedroom_lights
+      data:
+        brightness: "{{ states('input_number.wakeup_final_brightness') | int }}"
+        transition: "{{ ( states('input_number.wakeup_duration') | int ) * 60 }}"

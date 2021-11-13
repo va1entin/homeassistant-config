@@ -1,55 +1,82 @@
-- alias: 'Smart button living room dim down'
+- alias: 'Smart button living_room dim down'
   initial_state: 'on'
   trigger:
-  - device_id: 4c95d3b154125b8ff21d92c3fe0df0f8
-    domain: deconz
-    platform: device
-    type: remote_button_long_press
-    subtype: turn_on
+    - platform: state
+      entity_id: input_boolean.dim_state_living_room_stop
+      from: "on"
+      to: "off"
   condition:
     condition: state
     entity_id: input_boolean.dim_state_living_room_up
     state: 'off'
   action:
-    service: deconz.configure
-    data:
-      entity: light.living_room
-      field: "/action"
-      data: {"bri": 0, "transitiontime": 50}
+    repeat:
+      sequence:
+        - service: light.turn_on
+          target:
+            entity_id: light.living_room_lights
+          data:
+            brightness_step_pct: -20
+            transition: 1
+        - delay:
+            seconds: 1
+      until:
+        - condition: state
+          entity_id: input_boolean.dim_state_living_room_stop
+          state: "on"
 
-- alias: 'Smart button living room dim up'
+- alias: 'Smart button living_room dim up'
   initial_state: 'on'
   trigger:
-  - device_id: 4c95d3b154125b8ff21d92c3fe0df0f8
-    domain: deconz
-    platform: device
-    type: remote_button_long_press
-    subtype: turn_on
+    - platform: state
+      entity_id: input_boolean.dim_state_living_room_stop
+      from: "on"
+      to: "off"
   condition:
     condition: state
     entity_id: input_boolean.dim_state_living_room_up
     state: 'on'
   action:
-    service: deconz.configure
-    data:
-      entity: light.living_room
-      field: "/action"
-      data: {"bri": 254, "transitiontime": 50}
+    repeat:
+      sequence:
+        - service: light.turn_on
+          target:
+            entity_id: light.living_room_lights
+          data:
+            brightness_step_pct: 20
+            transition: 1
+        - delay:
+            seconds: 1
+      until:
+        - condition: state
+          entity_id: input_boolean.dim_state_living_room_stop
+          state: "on"
 
-- alias: 'Smart button living room stop dim'
+- alias: 'Smart button living_room start dim' 
   initial_state: 'on'
   trigger:
   - device_id: 4c95d3b154125b8ff21d92c3fe0df0f8
-    domain: deconz
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_on
+  action:
+    service: input_boolean.turn_off
+    data_template:
+      entity_id: input_boolean.dim_state_living_room_stop
+
+- alias: 'Smart button living_room stop dim'
+  initial_state: 'on'
+  trigger:
+  - device_id: 4c95d3b154125b8ff21d92c3fe0df0f8
+    domain: zha
     platform: device
     type: remote_button_long_release
     subtype: turn_on
   action:
-    - service: deconz.configure
-      data:
-        entity: light.living_room
-        field: "/action"
-        data: {"bri_inc": 0}
     - service: python_script.toggle_bool
       data_template:
         entity_id: input_boolean.dim_state_living_room_up
+    - service: input_boolean.turn_on
+      data_template:
+        entity_id: input_boolean.dim_state_living_room_stop

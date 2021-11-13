@@ -11,16 +11,15 @@ views:
       - type: entities
         title: Light rooms
         entities:
-          - light.bedroom
-          - light.living_room
-          - light.bathroom
+          - light.bedroom_lights
+          - light.living_room_lights
         show_header_toggle: true
       - type: entities
         title: Light bulbs
         entities:
-          - light.bedroom_deckenfluter
-          - light.bedroom_desk
-          - light.living_room_deckenfluter
+          - light.zha_bedroom_deckenfluter
+          - light.zha_bedroom_desk
+          - light.zha_living_room_deckenfluter
           - light.bathroom_left
           - light.bathroom_right
       - type: weather-forecast
@@ -54,8 +53,6 @@ views:
           - sensor.wakeup_alarm_time
           - sensor.wakeup_start_time_lights
           - sensor.wakeup_fadein_duration
-          - input_text.deconz_api_key
-          - input_number.deconz_port
         show_header_toggle: false
       - type: entities
         title: Notifications

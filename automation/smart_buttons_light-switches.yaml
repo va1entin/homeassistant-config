@@ -1,35 +1,50 @@
+# - alias: 'Smart button bedroom test'
+#   initial_state: 'on'
+#   trigger:
+#   - device_id: 63d4d6c2bfe5f91ea76d24dd6f1e3e05
+#     domain: deconz
+#     platform: device
+#     type: remote_button_short_release
+#     subtype: turn_on
+#   action:
+#     service: python_script.toggle_bool
+#     data_template:
+#       entity_id: input_boolean.button_test
+
 - alias: 'Smart button bedroom'
   initial_state: 'on'
   trigger:
   - device_id: 63d4d6c2bfe5f91ea76d24dd6f1e3e05
-    domain: deconz
+    domain: zha
     platform: device
     type: remote_button_short_release
     subtype: turn_on
   action:
     service: light.toggle
-    entity_id: light.bedroom
+    target:
+      entity_id: light.bedroom_lights
+
+# - alias: 'Smart button bathroom'
+#   initial_state: 'on'
+#   trigger:
+#   - device_id: a277bb05e8c0605375710af00b42972f
+#     domain: deconz
+#     platform: device
+#     type: remote_button_short_press
+#     subtype: turn_on
+#   action:
+#     service: light.toggle
+#     entity_id: light.bathroom
 
 - alias: 'Smart button living room'
   initial_state: 'on'
   trigger:
   - device_id: 4c95d3b154125b8ff21d92c3fe0df0f8
-    domain: deconz
+    domain: zha
     platform: device
     type: remote_button_short_release
     subtype: turn_on
   action:
     service: light.toggle
-    entity_id: light.living_room
-
-- alias: 'Smart button bathroom'
-  initial_state: 'on'
-  trigger:
-  - device_id: a277bb05e8c0605375710af00b42972f
-    domain: deconz
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  action:
-    service: light.toggle
-    entity_id: light.bathroom
+    target:
+      entity_id: light.living_room_lights
