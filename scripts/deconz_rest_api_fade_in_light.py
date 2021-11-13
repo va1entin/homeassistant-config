@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+# shell_command.yaml:
+# wakeup_light_call: /config/scripts/fade_in_light.py -k {{ states('input_text.deconz_api_key') }} -p {{ states('input_number.deconz_port') | int }} -g "{{ state_attr('light.bedroom', 'friendly_name') }}" -b {{ states('input_number.wakeup_final_brightness') | int }} -t {{ states('input_number.wakeup_duration') | int }}
+
+
 import argparse
 import requests
 
