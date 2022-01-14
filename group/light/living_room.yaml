@@ -1,4 +1,4 @@
 - platform: group
   name: Living room lights
   entities:
-    - light.zha_living_room_deckenfluter
+    - light.living_room_uplighter

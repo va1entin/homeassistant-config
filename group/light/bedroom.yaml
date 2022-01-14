@@ -1,5 +1,4 @@
 - platform: group
   name: Bedroom lights
   entities:
-    - light.zha_bedroom_deckenfluter
-    - light.zha_bedroom_desk
+    - light.bedroom_uplighter

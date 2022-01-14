@@ -1,0 +1,4 @@
+- platform: group
+  name: Office lights
+  entities:
+    - light.office_desk
