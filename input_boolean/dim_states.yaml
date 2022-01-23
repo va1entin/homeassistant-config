@@ -13,3 +13,11 @@ dim_state_living_room_up:
 dim_state_living_room_stop:
   name: 'Dim state living room stop'
   icon: mdi:power
+
+dim_state_office_up:
+  name: 'Dim state office'
+  icon: mdi:power
+
+dim_state_office_stop:
+  name: 'Dim state office stop'
+  icon: mdi:power
