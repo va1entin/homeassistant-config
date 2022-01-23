@@ -55,7 +55,7 @@
 - alias: 'Smart button living_room start dim' 
   initial_state: 'on'
   trigger:
-  - device_id: 4c95d3b154125b8ff21d92c3fe0df0f8
+  - device_id: 5261e7eb63a15f71a968984f20840eda
     domain: zha
     platform: device
     type: remote_button_long_press
@@ -68,7 +68,7 @@
 - alias: 'Smart button living_room stop dim'
   initial_state: 'on'
   trigger:
-  - device_id: 4c95d3b154125b8ff21d92c3fe0df0f8
+  - device_id: 5261e7eb63a15f71a968984f20840eda
     domain: zha
     platform: device
     type: remote_button_long_release
