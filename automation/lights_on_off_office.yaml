@@ -1,0 +1,36 @@
+- alias: 'Turn office lights on when office device is present'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.val
+      to: home
+    - platform: state
+      entity_id: device_tracker.bwp_176vty
+      to: home
+  action:
+    service: light.turn_on
+    entity_id:
+      - light.office_lights
+
+- alias: 'Turn office lights off when office device are not present'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: device_tracker.val
+      to: not_home
+    - platform: state
+      entity_id: device_tracker.bwp_176vty
+      to: not_home
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: device_tracker.val
+      state: 'not_home'
+    - condition: state
+      entity_id: device_tracker.bwp_176vty
+      state: 'not_home'
+  action:
+    service: light.turn_off
+    entity_id:
+      - light.office_lights
