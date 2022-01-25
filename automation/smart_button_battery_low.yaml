@@ -1,0 +1,47 @@
+- alias: 'Smart button bedroom battery low'
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.bedroom_button_power
+    below: input_number.crit_battery_level
+  condition:
+    condition: state
+    entity_id: input_boolean.enable_battery_alarm
+    state: 'on'
+  action:
+    service: notify.mobile_app_oneplus_nord_n10
+    data:
+      title: "Battery low: Oneplus"
+      message: "Battery warning on {{ state_attr('sensor.bedroom_button_power', 'friendly_name') }}: {{ states('sensor.bedroom_button_power') }}"
+
+- alias: 'Smart button office battery low'
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.office_button_power
+    below: input_number.crit_battery_level
+  condition:
+    condition: state
+    entity_id: input_boolean.enable_battery_alarm
+    state: 'on'
+  action:
+    service: notify.mobile_app_oneplus_nord_n10
+    data:
+      title: "Battery low: Oneplus"
+      message: "Battery critial on {{ state_attr('sensor.office_button_power', 'friendly_name') }}: {{ states('sensor.office_button_power') }}"
+
+- alias: 'Smart button living_room battery low'
+  initial_state: 'on'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.living_room_button_power
+    below: input_number.crit_battery_level
+  condition:
+    condition: state
+    entity_id: input_boolean.enable_battery_alarm
+    state: 'on'
+  action:
+    service: notify.mobile_app_oneplus_nord_n10
+    data:
+      title: "Battery low: Oneplus"
+      message: "Battery critial on {{ state_attr('sensor.living_room_button_power', 'friendly_name') }}: {{ states('sensor.living_room_button_power') }}"
