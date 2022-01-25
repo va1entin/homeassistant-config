@@ -9,7 +9,7 @@
     entity_id: input_boolean.enable_version_notification
     state: 'on'
   action:
-    service: notify.mobile_app_oneplus_nord_n105g
+    service: notify.mobile_app_oneplus_nord_n10
     data:
       title: "New HomeAssistant version"
       message: "There is a new HomeAssistant release available. Newest version is: {{ state_attr('binary_sensor.updater', 'newest_version') }}"
