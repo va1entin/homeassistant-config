@@ -1,4 +1,4 @@
 - platform: group
   name: Bedroom lights
   entities:
-    - light.bedroom_uplighter
+    - light.bedroom_ceiling
