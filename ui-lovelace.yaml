@@ -14,6 +14,7 @@ views:
           - light.bedroom_lights
           - light.living_room_lights
           - light.office_lights
+          - light.storage_lights
         show_header_toggle: true
       - type: entities
         title: Light bulbs
@@ -22,6 +23,7 @@ views:
           - light.living_room_uplighter
           - light.office_desk
           - light.office_uplighter
+          - light.storage_ceiling
           # - light.bathroom_left
           # - light.bathroom_right
       - type: weather-forecast
@@ -35,7 +37,7 @@ views:
           - input_number.crit_battery_level
           - sensor.bedroom_button_power
           - sensor.living_room_button_power
-          - sensor.office_button_power
+          - sensor.storage_button_power
       - type: entities
         title: Time/Date
         entities:
