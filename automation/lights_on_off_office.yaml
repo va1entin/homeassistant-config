@@ -2,7 +2,10 @@
   initial_state: 'on'
   trigger:
     - platform: state
-      entity_id: device_tracker.val
+      entity_id: device_tracker.val_wlan
+      to: home
+    - platform: state
+      entity_id: device_tracker.val_ethernet
       to: home
     - platform: state
       entity_id: device_tracker.bwp_176vty
@@ -16,7 +19,10 @@
   initial_state: 'on'
   trigger:
     - platform: state
-      entity_id: device_tracker.val
+      entity_id: device_tracker.val_wlan
+      to: not_home
+    - platform: state
+      entity_id: device_tracker.val_ethernet
       to: not_home
     - platform: state
       entity_id: device_tracker.bwp_176vty
@@ -25,7 +31,10 @@
     condition: and
     conditions:
     - condition: state
-      entity_id: device_tracker.val
+      entity_id: device_tracker.val_wlan
+      state: 'not_home'
+    - condition: state
+      entity_id: device_tracker.val_ethernet
       state: 'not_home'
     - condition: state
       entity_id: device_tracker.bwp_176vty
