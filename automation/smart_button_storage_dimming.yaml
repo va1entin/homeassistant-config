@@ -1,20 +1,20 @@
-- alias: 'Smart button office dim down'
+- alias: 'Smart button storage dim down'
   initial_state: 'on'
   trigger:
     - platform: state
-      entity_id: input_boolean.dim_state_office_stop
+      entity_id: input_boolean.dim_state_storage_stop
       from: "on"
       to: "off"
   condition:
     condition: state
-    entity_id: input_boolean.dim_state_office_up
+    entity_id: input_boolean.dim_state_storage_up
     state: 'off'
   action:
     repeat:
       sequence:
         - service: light.turn_on
           target:
-            entity_id: light.office_lights
+            entity_id: light.storage_lights
           data:
             brightness_step_pct: -20
             transition: 1
@@ -22,26 +22,26 @@
             seconds: 1
       until:
         - condition: state
-          entity_id: input_boolean.dim_state_office_stop
+          entity_id: input_boolean.dim_state_storage_stop
           state: "on"
 
-- alias: 'Smart button office dim up'
+- alias: 'Smart button storage dim up'
   initial_state: 'on'
   trigger:
     - platform: state
-      entity_id: input_boolean.dim_state_office_stop
+      entity_id: input_boolean.dim_state_storage_stop
       from: "on"
       to: "off"
   condition:
     condition: state
-    entity_id: input_boolean.dim_state_office_up
+    entity_id: input_boolean.dim_state_storage_up
     state: 'on'
   action:
     repeat:
       sequence:
         - service: light.turn_on
           target:
-            entity_id: light.office_lights
+            entity_id: light.storage_lights
           data:
             brightness_step_pct: 20
             transition: 1
@@ -49,10 +49,10 @@
             seconds: 1
       until:
         - condition: state
-          entity_id: input_boolean.dim_state_office_stop
+          entity_id: input_boolean.dim_state_storage_stop
           state: "on"
 
-- alias: 'Smart button office start dim'
+- alias: 'Smart button storage start dim'
   initial_state: 'on'
   trigger:
   - device_id: f2855c5523ee662303b3e106f4575abb
@@ -63,9 +63,9 @@
   action:
     service: input_boolean.turn_off
     data_template:
-      entity_id: input_boolean.dim_state_office_stop
+      entity_id: input_boolean.dim_state_storage_stop
 
-- alias: 'Smart button office stop dim'
+- alias: 'Smart button storage stop dim'
   initial_state: 'on'
   trigger:
   - device_id: f2855c5523ee662303b3e106f4575abb
@@ -76,7 +76,7 @@
   action:
     - service: python_script.toggle_bool
       data_template:
-        entity_id: input_boolean.dim_state_office_up
+        entity_id: input_boolean.dim_state_storage_up
     - service: input_boolean.turn_on
       data_template:
-        entity_id: input_boolean.dim_state_office_stop
+        entity_id: input_boolean.dim_state_storage_stop
