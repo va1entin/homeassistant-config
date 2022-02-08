@@ -14,10 +14,10 @@ dim_state_living_room_stop:
   name: 'Dim state living room stop'
   icon: mdi:power
 
-dim_state_office_up:
-  name: 'Dim state office'
+dim_state_storage_up:
+  name: 'Dim state storage'
   icon: mdi:power
 
-dim_state_office_stop:
-  name: 'Dim state office stop'
+dim_state_storage_stop:
+  name: 'Dim state storage stop'
   icon: mdi:power
