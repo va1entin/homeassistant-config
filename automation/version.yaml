@@ -2,7 +2,7 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: binary_sensor.updater
+    entity_id: binary_sensor.home_assistant_website_update_available
     to: 'on'
   condition:
     condition: state
@@ -12,4 +12,4 @@
     service: notify.mobile_app_oneplus_nord_n10
     data:
       title: "New HomeAssistant version"
-      message: "There is a new HomeAssistant release available. Newest version is: {{ state_attr('binary_sensor.updater', 'newest_version') }}"
+      message: "There is a new HomeAssistant release available. Newest version is: {{ states('sensor.home_assistant_website') }}"

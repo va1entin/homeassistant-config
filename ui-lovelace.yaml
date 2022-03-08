@@ -3,7 +3,7 @@ views:
   - path: default_view
     title: Home
     badges:
-      - entity: binary_sensor.updater
+      - entity: binary_sensor.home_assistant_website_update_available
       - entity: person.val
       - entity: sensor.time
       - entity: sun.sun
@@ -24,6 +24,7 @@ views:
           - light.office_desk
           - light.office_uplighter
           - light.storage_ceiling
+          - light.entry_ceiling
           # - light.bathroom_left
           # - light.bathroom_right
       - type: weather-forecast
