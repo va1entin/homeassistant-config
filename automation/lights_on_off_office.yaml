@@ -10,6 +10,10 @@
     - platform: state
       entity_id: device_tracker.bwp_176vty
       to: home
+  conditions:
+  - condition: state
+    entity_id: sun.sun
+    state: 'below_horizon'
   action:
     service: light.turn_on
     entity_id:
