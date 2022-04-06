@@ -10,37 +10,41 @@
     - platform: state
       entity_id: device_tracker.bwp_176vty
       to: home
-  condition: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
+  condition:
+    condition: or
+    conditions:
+    - "{{ state_attr('sun.sun', 'elevation') < 4 }}"
+    - "{{ not is_state('weather.home', 'sunny') }}"
   action:
     service: light.turn_on
     entity_id:
       - light.office_lights
 
-- alias: 'Turn office lights off when office device are not present'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id: device_tracker.val_wlan
-      to: not_home
-    - platform: state
-      entity_id: device_tracker.val_ethernet
-      to: not_home
-    - platform: state
-      entity_id: device_tracker.bwp_176vty
-      to: not_home
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: device_tracker.val_wlan
-      state: 'not_home'
-    - condition: state
-      entity_id: device_tracker.val_ethernet
-      state: 'not_home'
-    - condition: state
-      entity_id: device_tracker.bwp_176vty
-      state: 'not_home'
-  action:
-    service: light.turn_off
-    entity_id:
-      - light.office_lights
+# - alias: 'Turn office lights off when office device are not present'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: device_tracker.val_wlan
+#       to: not_home
+#     - platform: state
+#       entity_id: device_tracker.val_ethernet
+#       to: not_home
+#     - platform: state
+#       entity_id: device_tracker.bwp_176vty
+#       to: not_home
+#   condition:
+#     condition: and
+#     conditions:
+#     - condition: state
+#       entity_id: device_tracker.val_wlan
+#       state: 'not_home'
+#     - condition: state
+#       entity_id: device_tracker.val_ethernet
+#       state: 'not_home'
+#     - condition: state
+#       entity_id: device_tracker.bwp_176vty
+#       state: 'not_home'
+#   action:
+#     service: light.turn_off
+#     entity_id:
+#       - light.office_lights
