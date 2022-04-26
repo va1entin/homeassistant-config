@@ -14,7 +14,7 @@
     condition: or
     conditions:
     - "{{ state_attr('sun.sun', 'elevation') < 4 }}"
-    - "{{ not is_state('weather.home', 'sunny') }}"
+    - "{{ not is_state('weather.home', 'sunny') and not is_state('weather.home', 'partlycloudy') }}"
   action:
     service: light.turn_on
     entity_id:
