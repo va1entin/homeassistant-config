@@ -12,17 +12,17 @@ views:
         title: Light rooms
         entities:
           - light.bedroom_lights
-          - light.living_room_lights
           - light.office_lights
+          - light.living_room_lights
           - light.storage_lights
         show_header_toggle: true
       - type: entities
         title: Light bulbs
         entities:
           - light.bedroom_ceiling
-          - light.living_room_uplighter
           - light.office_desk
           - light.office_uplighter
+          - light.living_room_uplighter
           - light.storage_ceiling
           - light.entry_ceiling
           # - light.bathroom_left
