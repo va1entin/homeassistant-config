@@ -35,7 +35,7 @@
   action:
     service: light.toggle
     target:
-      entity_id: light.storage_lights
+      entity_id: light.living_room_lights
 
 - alias: 'Smart button living room'
   initial_state: 'on'
