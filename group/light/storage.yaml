@@ -1,4 +1,0 @@
-- platform: group
-  name: Storage lights
-  entities:
-    - light.storage_ceiling

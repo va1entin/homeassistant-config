@@ -23,8 +23,9 @@ views:
           - light.office_desk
           - light.office_uplighter
           - light.living_room_uplighter
-          - light.storage_ceiling
-          - light.entry_ceiling
+          - light.living_room_regal
+          # - light.storage_ceiling
+          # - light.entry_ceiling
           # - light.bathroom_left
           # - light.bathroom_right
       - type: weather-forecast
