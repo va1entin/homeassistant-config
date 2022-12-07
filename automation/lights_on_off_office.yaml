@@ -1,5 +1,5 @@
 - alias: 'Turn office lights on when office device is present'
-  initial_state: 'on'
+  initial_state: 'off'
   trigger:
     - platform: state
       entity_id: device_tracker.val_wlan
