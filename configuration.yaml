@@ -8,7 +8,8 @@ tts:
   - platform: google_translate
 
 # Includes
-automation: !include_dir_merge_list automation/
+automation yaml: !include_dir_merge_list automation/
+automation ui: !include automations.yaml
 # device_tracker: !include_dir_merge_list device_tracker/
 #group: !include_dir_merge_list group/
 light: !include_dir_merge_list group/light
