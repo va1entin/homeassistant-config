@@ -1,0 +1,21 @@
+- id: '1681573540346'
+  alias: Living room lights 100-70 at 21:00
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /10
+  condition:
+  - condition: state
+    entity_id: light.living_room_lights
+    state: 'on'
+  - condition: time
+    after: '19:59:00'
+    before: '23:00:00'
+  action:
+  - service: light.turn_on
+    data:
+      transition: 10
+      brightness_step_pct: -4
+    target:
+      area_id: living_room
+  mode: single
